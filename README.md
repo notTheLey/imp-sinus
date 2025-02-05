@@ -22,7 +22,6 @@ Da Excel keine **COT()**-Funktion hat, muss man für Kotangens (`COT`) die Forme
 
 Mehr Infos zu Excel-Funktionen:  
 - [Microsoft Support – Sinus Funktion](https://support.microsoft.com/de-de/office/sin-funktion-22942648-b550-4099-908c-aeebff2fd87f)  
-- [Excel-Trigonometrie-Funktionen](https://exceljet.net/excel-functions/excel-trigonometry-functions)  
 
 
 ### 1.2 Probleme mit Tangens und Kotangens  
@@ -40,9 +39,8 @@ Damit die Tabelle nicht fehlerhaft ist, kann man eine einfache Bedingung einbaue
 
 So zeigt Excel bei ungültigen Werten einfach `"undefiniert"` an.  
 
-Weitere Tipps für Excel:  
-- [WENNFEHLER-Funktion in Excel](https://support.microsoft.com/de-de/office/wennfehler-funktion-c526fd07-caeb-47b8-8bb6-63f3e417f611)  
-- [Ablebits – Excel Fehlerwerte vermeiden](https://www.ablebits.com/office-addins-blog/de/excel-error-handling/)  
+Quellen der Funktionen:  
+- [WENNFEHLER-Funktion in Excel](https://support.microsoft.com/de-de/office/wennfehler-funktion-c526fd07-caeb-47b8-8bb6-63f3e417f611)
 
 ---
 
@@ -153,6 +151,10 @@ cot_vals[np.abs(cot_vals) > 10] = np.nan
 plot_alpha = alpha if alpha >= 0 else 360 + alpha  # Negative Alpha-Werte -90 -> 270
 ```
 - Negative Winkel (z.B. -30°) werden für die Darstellung im Diagramm angepasst, da der Plot in Dash nur positive Werte korrekt darstellt. Dieser Code sorgt dafür, dass negative Winkel korrekt als Werte im Bereich von 0 bis 360° verarbeitet werden.
+
+Quelle:
+-[Numpy doc Mathematical functions](https://numpy.org/doc/2.1/reference/routines.math.html)
+-[Plotly Dash in 20min](https://dash.plotly.com/tutorial)
 
 ---
 
