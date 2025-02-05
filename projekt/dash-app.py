@@ -66,7 +66,6 @@ def update_graphs(alpha):
     )
 
     # SIn COS TAN & COT 
-    # SIn COS TAN & COT 
     x_vals = np.linspace(0, 360, 500)
 
     sin_vals = np.sin(np.radians(x_vals))
