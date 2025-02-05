@@ -84,8 +84,8 @@ def update_graphs(alpha):
     fig_sincos = go.Figure()
     fig_sincos.add_trace(go.Scatter(x=x_vals, y=sin_vals, mode='lines', name='sin(α)', line=dict(color='red'))) # Lines
     fig_sincos.add_trace(go.Scatter(x=x_vals, y=cos_vals, mode='lines', name='cos(α)', line=dict(color='blue')))
-    fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.sin(rad)], mode='markers', name=f"sin({alpha}°)", marker=dict(color='red', size=10))) # Punkte
-    fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.cos(rad)], mode='markers', name=f"cos({alpha}°)", marker=dict(color='blue', size=10))) 
+    fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.sin(rad)], mode='markers', name=f"sin({alpha}°) = {np.sin(rad):.3f}", marker=dict(color='red', size=10))) # Punkte
+    fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.cos(rad)], mode='markers', name=f"cos({alpha}°) = {np.cos(rad):.3f}", marker=dict(color='blue', size=10))) 
     fig_sincos.update_layout(
         title="Sinus & Kosinus",
         xaxis_title="Grad",
@@ -98,9 +98,9 @@ def update_graphs(alpha):
     fig_tancot.add_trace(go.Scatter(x=x_vals, y=tan_vals, mode='lines', name='tan(α)', line=dict(color='green'))) # Lines
     fig_tancot.add_trace(go.Scatter(x=x_vals, y=cot_vals, mode='lines', name='cot(α)', line=dict(color='purple')))
     if np.abs(np.tan(rad)) < 10: # Werte bei tan/cot entfernen
-        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[np.tan(rad)], mode='markers', name=f"tan({alpha}°)", marker=dict(color='green', size=10))) # Punkte
+        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[np.tan(rad)], mode='markers', name=f"tan({alpha}°) {np.tan(rad):.3f}", marker=dict(color='green', size=10))) # Punkte
     if np.abs(1/np.tan(rad)) < 10:
-        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[1/np.tan(rad)], mode='markers', name=f"cot({alpha}°)", marker=dict(color='purple', size=10))) 
+        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[1/np.tan(rad)], mode='markers', name=f"cot({alpha}°) = {1/np.tan(rad):.3f}", marker=dict(color='purple', size=10))) 
     fig_tancot.update_layout(
         title="Tangens & Kotangens",
         xaxis_title="Grad",
