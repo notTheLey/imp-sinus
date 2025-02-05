@@ -153,8 +153,8 @@ plot_alpha = alpha if alpha >= 0 else 360 + alpha  # Negative Alpha-Werte -90 ->
 - Negative Winkel (z.B. -30°) werden für die Darstellung im Diagramm angepasst, da der Plot in Dash nur positive Werte korrekt darstellt. Dieser Code sorgt dafür, dass negative Winkel korrekt als Werte im Bereich von 0 bis 360° verarbeitet werden.
 
 Quelle:
--[Numpy doc Mathematical functions](https://numpy.org/doc/2.1/reference/routines.math.html)
--[Plotly Dash in 20min](https://dash.plotly.com/tutorial)
+- [Numpy doc Mathematical functions](https://numpy.org/doc/2.1/reference/routines.math.html)
+- [Plotly Dash in 20min](https://dash.plotly.com/tutorial)
 
 ---
 
