@@ -8,7 +8,7 @@ app = dash.Dash(__name__)
 # Layout über html durch dash (super ding)
 app.layout = html.Div([
     html.H1("Sinus & Kosinus", style={'textAlign': 'center'}),
-    
+
     html.Div([
         html.Label("Winkel α (-90° bis 90°)", style={'fontSize': 18}),
         dcc.Slider(
@@ -98,9 +98,9 @@ def update_graphs(alpha):
     fig_tancot.add_trace(go.Scatter(x=x_vals, y=tan_vals, mode='lines', name='tan(α)', line=dict(color='green'))) # Lines
     fig_tancot.add_trace(go.Scatter(x=x_vals, y=cot_vals, mode='lines', name='cot(α)', line=dict(color='purple')))
     if np.abs(np.tan(rad)) < 10: # Werte bei tan/cot entfernen
-        fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.sin(rad)], mode='markers', name=f"sin({alpha}°)", marker=dict(color='red', size=10))) # Punkte
+        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[np.tan(rad)], mode='markers', name=f"tan({alpha}°)", marker=dict(color='green', size=10))) # Punkte
     if np.abs(1/np.tan(rad)) < 10:
-        fig_sincos.add_trace(go.Scatter(x=[plot_alpha], y=[np.cos(rad)], mode='markers', name=f"cos({alpha}°)", marker=dict(color='blue', size=10))) 
+        fig_tancot.add_trace(go.Scatter(x=[plot_alpha], y=[1/np.tan(rad)], mode='markers', name=f"cot({alpha}°)", marker=dict(color='purple', size=10))) 
     fig_tancot.update_layout(
         title="Tangens & Kotangens",
         xaxis_title="Grad",
@@ -113,4 +113,4 @@ def update_graphs(alpha):
     return fig_triangle, fig_sincos, fig_tancot, values_text
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(debug=True, host='0.0.0.0', port=8050)
